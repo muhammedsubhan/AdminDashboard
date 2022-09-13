@@ -134,7 +134,6 @@ aside {
 }
 
 aside .top {
-  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -242,8 +241,9 @@ main .date input[type="date"] {
 }
 
 main .insights {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
 }
 
 main .insights > div {
@@ -520,4 +520,65 @@ main .recent-orders a {
 
 .right .sales-analytics .add-product div h3 {
   font-weight: 600;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 94%;
+    grid-template-columns: 7rem auto 23rem;
+  }
+  aside .logo h2 {
+    display: none;
+  }
+  aside .sidebar h3 {
+    display: none;
+  }
+  aside .sidebar a {
+    width: 5.6rem;
+  }
+  aside .sidebar a:last-child {
+    position: relative;
+    margin-top: 1.8rem;
+  }
+  main .insights {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  main .recent-orders {
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2rem 0 0 8.8rem;
+  }
+  main .recent-orders table {
+    width: 83vw;
+  }
+  main table thead tr th:last-child,
+  main table thead tr th:first-child {
+    display: none;
+  }
+  main table tbody tr td:last-child,
+  main table tbody tr td:first-child {
+    display: none;
+  }
+
+  main .insights .progress {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+  }
+
+  main .insights .progress .number {
+    position: absolute;
+    bottom: 5px;
+    right: 41px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
 }
